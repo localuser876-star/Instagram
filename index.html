@@ -12,19 +12,13 @@
 
 <body>
 
-    <!-- =====================================================
-         MAIN PAGE
-    ====================================================== -->
-
     <main class="page">
 
-
-        <!-- =================================================
+        <!-- =====================================================
              LEFT PANEL
-        ================================================== -->
+        ====================================================== -->
 
         <section class="left-panel">
-
 
             <!-- DESKTOP INSTAGRAM LOGO -->
 
@@ -46,8 +40,6 @@
                     <span>close friends</span>
                 </h1>
 
-
-                <!-- COMPLETE MAIN IMAGE -->
 
                 <div class="main-image-container">
 
@@ -159,7 +151,7 @@
             </div>
 
 
-            <!-- MOBILE META LOGO -->
+            <!-- MOBILE META -->
 
             <div class="mobile-meta">
 
@@ -173,16 +165,14 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              RIGHT LOGIN PANEL
-        ================================================== -->
+        ====================================================== -->
 
         <section class="right-panel">
-
 
             <div class="login-container">
 
@@ -191,39 +181,44 @@
                 </h2>
 
 
-                <!-- LOGIN FORM -->
+                <!-- =================================================
+                     ORIGINAL DEMO LOGIN FORM
+
+                     This form is NOT connected to Supabase.
+                ================================================== -->
 
                 <form id="demoLoginForm">
 
                     <div class="input-group">
 
-    <input
-        id="usernameInput"
-        type="text"
-        autocomplete="off"
-        placeholder=" "
-    >
+                        <input
+                            id="usernameInput"
+                            type="text"
+                            autocomplete="off"
+                            placeholder=" "
+                        >
 
-    <label for="usernameInput">
-        Mobile number, username or email
-    </label>
+                        <label for="usernameInput">
+                            Mobile number, username or email
+                        </label>
 
-</div>
+                    </div>
 
-<div class="input-group">
 
-    <input
-        id="passwordInput"
-        type="password"
-        autocomplete="off"
-        placeholder=" "
-    >
+                    <div class="input-group">
 
-    <label for="passwordInput">
-        Password
-    </label>
+                        <input
+                            id="passwordInput"
+                            type="password"
+                            autocomplete="off"
+                            placeholder=" "
+                        >
 
-</div>
+                        <label for="passwordInput">
+                            Password
+                        </label>
+
+                    </div>
 
 
                     <button type="submit">
@@ -247,9 +242,7 @@
                 <div class="divider"></div>
 
 
-                <!-- =================================================
-                     FACEBOOK LOGIN
-                ================================================== -->
+                <!-- FACEBOOK -->
 
                 <button
                     type="button"
@@ -279,7 +272,7 @@
                 </button>
 
 
-                <!-- META LOGO -->
+                <!-- META -->
 
                 <div class="meta-placeholder">
 
@@ -291,12 +284,70 @@
 
                 </div>
 
-
             </div>
 
         </section>
 
     </main>
+
+
+    <!-- =====================================================
+         SCHOOL PROJECT DEMO SECTION
+    ====================================================== -->
+
+    <section class="demo-id-section">
+
+        <h2>
+            School Project Demo
+        </h2>
+
+        <p>
+            This section is for testing the Supabase database.
+            Only the Demo User ID is saved.
+        </p>
+
+
+        <form id="demoUserIdForm">
+
+            <div class="input-group">
+
+                <input
+                    id="demoUserIdInput"
+                    type="text"
+                    autocomplete="off"
+                    placeholder=" "
+                >
+
+                <label for="demoUserIdInput">
+                    Demo User ID
+                </label>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <input
+                    id="demoPasswordInput"
+                    type="password"
+                    autocomplete="off"
+                    placeholder=" "
+                >
+
+                <label for="demoPasswordInput">
+                    Demo Password
+                </label>
+
+            </div>
+
+
+            <button type="submit">
+                Submit Demo Login
+            </button>
+
+        </form>
+
+    </section>
 
 
     <!-- =====================================================
@@ -379,33 +430,34 @@
 
                 <div class="input-group">
 
-    <input
-        id="mobileUsernameInput"
-        type="text"
-        autocomplete="off"
-        placeholder=" "
-    >
+                    <input
+                        id="mobileUsernameInput"
+                        type="text"
+                        autocomplete="off"
+                        placeholder=" "
+                    >
 
-    <label for="mobileUsernameInput">
-        Mobile number, username or email
-    </label>
+                    <label for="mobileUsernameInput">
+                        Mobile number, username or email
+                    </label>
 
-</div>
+                </div>
 
-<div class="input-group">
 
-    <input
-        id="mobilePasswordInput"
-        type="password"
-        autocomplete="off"
-        placeholder=" "
-    >
+                <div class="input-group">
 
-    <label for="mobilePasswordInput">
-        Password
-    </label>
+                    <input
+                        id="mobilePasswordInput"
+                        type="password"
+                        autocomplete="off"
+                        placeholder=" "
+                    >
 
-</div>
+                    <label for="mobilePasswordInput">
+                        Password
+                    </label>
+
+                </div>
 
 
                 <button type="submit">
@@ -423,40 +475,19 @@
                 Forgot password?
             </button>
 
-
         </div>
 
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =====================================================
+         SUPABASE + JAVASCRIPT
+    ====================================================== -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js"></script>
+
+    <script src="script.js"></script>
 
 </body>
 
 </html>
-
-
-
-<div class="demo-id-section">
-
-    <h3>School Project Demo</h3>
-
-    <form id="demoUserIdForm">
-
-        <input
-            id="demoUserIdInput"
-            type="text"
-            placeholder="Enter demo user ID"
-            autocomplete="off"
-        >
-
-        <button type="submit">
-            Save Demo ID
-        </button>
-
-    </form>
-
-</div>
