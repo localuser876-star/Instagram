@@ -1,0 +1,1089 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    background: #0b0e11;
+    color: #f5f5f5;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.page {
+    min-height: calc(100vh - 89px);
+
+    display: grid;
+
+    grid-template-columns: 57% 43%;
+}
+
+
+/* =========================================================
+   LEFT PANEL
+========================================================= */
+
+.left-panel {
+    position: relative;
+
+    min-height: 750px;
+
+    background: #0b0e11;
+
+    border-right: 1px solid #34373b;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DESKTOP INSTAGRAM LOGO
+========================================================= */
+
+.desktop-instagram-logo {
+    position: absolute;
+
+    top: 45px;
+    left: 49px;
+
+    width: 60px;
+    height: 60px;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+}
+
+
+/* =========================================================
+   DESKTOP HERO
+========================================================= */
+
+.hero-content {
+    width: 620px;
+    max-width: 80%;
+
+    margin: 145px auto 0;
+
+    text-align: center;
+}
+
+
+.hero-content h1 {
+    color: #f5f5f5;
+
+    font-size: 40px;
+
+    line-height: 1.45;
+
+    font-weight: 400;
+
+    letter-spacing: -1px;
+}
+
+
+.hero-content h1 span {
+    display: block;
+
+    font-weight: 500;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff7043,
+            #ff1493,
+            #c329ff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
+
+.main-image-container {
+    width: 100%;
+
+    margin: 0px auto 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.main-image {
+    display: block;
+
+    width: 100%;
+
+    max-width: 620px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   RIGHT PANEL
+========================================================= */
+
+.right-panel {
+    min-height: 750px;
+
+    background: #1d1d1f;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+
+.login-container {
+    width: 586px;
+
+    max-width: 82%;
+
+    margin-top: 110px;
+
+    text-align: center;
+}
+
+
+.login-container h2 {
+    text-align: left;
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+
+    font-weight: 550;
+
+    color: #f4f4f4;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+/* =========================================================
+   FLOATING LABEL INPUTS
+========================================================= */
+
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.input-group input {
+    display: block;
+
+    width: 100%;
+    height: 64px;
+
+    padding: 22px 17px 0;
+
+    border: 1px solid #4c4c4e;
+    border-radius: 18px;
+
+    outline: none;
+
+    background: #1d1d1f;
+    color: white;
+
+    font-size: 17px;
+
+    transition:
+        border-color 0.2s ease,
+        padding-top 0.2s ease;
+}
+
+/* Hide the actual placeholder */
+.input-group input::placeholder {
+    color: transparent;
+}
+
+/* Label inside the box */
+.input-group label {
+    position: absolute;
+
+    left: 17px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #a8a8ab;
+
+    font-size: 17px;
+
+    pointer-events: none;
+
+    transform-origin: left center;
+
+    transition:
+        top 0.2s ease,
+        transform 0.2s ease,
+        font-size 0.2s ease,
+        color 0.2s ease;
+}
+
+/* When clicked */
+.input-group input:focus + label,
+
+/* Keep label raised when something is typed */
+.input-group input:not(:placeholder-shown) + label {
+    top: 13px;
+
+    transform: translateY(0) scale(0.75);
+
+    color: #a8a8ab;
+}
+
+/* Focus border */
+.input-group input:focus {
+    border-color: #77777b;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+form button {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 28px;
+
+    background: #19559a;
+
+    color: #bfc9d5;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+form button:hover {
+    background: #2264ad;
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+.forgot {
+    display: block;
+
+    width: 535px;
+    height: 45px;
+
+    margin: 10px auto 0;
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 22px;
+
+    background: transparent;
+
+    color: #f1f1f1;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Hover capsule */
+
+.forgot:hover {
+    background: rgba(255, 255, 255, 0.10);
+
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+    height: 48px;
+}
+
+
+/* =========================================================
+   FACEBOOK
+========================================================= */
+
+.facebook-button {
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 28px;
+
+    background: #29292b;
+
+    color: #c9c9cc;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+
+.facebook-logo {
+    display: inline-block;
+
+    width: 18px;
+    height: 18px;
+
+    margin-right: 6px;
+    margin-bottom: 3.5px;
+
+    object-fit: contain;
+
+    vertical-align: middle;
+}
+
+
+/* =========================================================
+   CREATE ACCOUNT
+========================================================= */
+
+.create-account {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 14px;
+
+    border: 1px solid #1689ff;
+
+    border-radius: 28px;
+
+    background: transparent;
+
+    color: #49a8ff;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+.create-account:hover {
+    background: rgba(20, 120, 230, .08);
+}
+
+
+/* =========================================================
+   DESKTOP META LOGO
+========================================================= */
+
+.meta-placeholder {
+    margin-top: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.meta-logo {
+    width: 65px;
+
+    height: auto;
+
+    max-height: 35px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   MOBILE ELEMENTS
+========================================================= */
+
+.mobile-top-bar,
+.mobile-language,
+.mobile-hero,
+.mobile-meta,
+.mobile-login-overlay {
+    display: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    min-height: 89px;
+
+    background: #0b0e11;
+
+    border-top: 1px solid #34373b;
+
+    padding: 22px 30px 14px;
+
+    color: #9fa2a7;
+}
+
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 19px;
+
+    margin-bottom: 18px;
+}
+
+
+.footer-links a {
+    color: #9fa2a7;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    font-size: 13px;
+}
+
+
+.footer-bottom button {
+    border: none;
+
+    background: transparent;
+
+    color: #9fa2a7;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .page {
+        grid-template-columns: 1fr;
+    }
+
+
+    .left-panel {
+        display: none;
+    }
+
+
+    .right-panel {
+        min-height: calc(100vh - 100px);
+    }
+
+
+    .login-container {
+        margin-top: 70px;
+    }
+
+
+    footer {
+        min-height: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    body {
+        background: #0b0e11;
+    }
+
+
+    /* MAIN */
+
+    .page {
+        display: block;
+
+        min-height: calc(100vh - 65px);
+    }
+
+
+    /* LEFT PANEL BECOMES MOBILE PAGE */
+
+    .left-panel {
+        display: block;
+
+        min-height: calc(100vh - 65px);
+
+        border-right: none;
+
+        background: #0b0e11;
+
+        overflow: hidden;
+    }
+
+
+    /* Hide desktop logo */
+
+    .desktop-instagram-logo {
+        display: none;
+    }
+
+
+    /* Hide desktop hero */
+
+    .hero-content {
+        display: none;
+    }
+
+
+    /* Hide desktop login */
+
+    .right-panel {
+        display: none;
+    }
+
+
+    /* =====================================================
+       MOBILE TOP BAR
+    ====================================================== */
+
+    .mobile-top-bar {
+        display: flex;
+
+        width: 100%;
+
+        min-height: 120px;
+
+        padding:
+            24px 28px;
+
+        border-bottom: 1px solid #34373b;
+
+        align-items: center;
+
+        justify-content: space-between;
+    }
+
+
+    .mobile-instagram-word {
+        color: #ffffff;
+
+        font-size: 31px;
+
+        font-weight: 600;
+
+        letter-spacing: -1.8px;
+    }
+
+
+    .mobile-top-buttons {
+        display: flex;
+
+        align-items: center;
+
+        gap: 16px;
+    }
+
+
+    .mobile-top-buttons button {
+        border: none;
+
+        background: transparent;
+
+        color: #8ba7ff;
+
+        font-size: 16px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-open-top {
+        height: 48px;
+
+        padding: 0 20px !important;
+
+        border-radius: 15px !important;
+
+        background: #4d5df5 !important;
+
+        color: white !important;
+    }
+
+
+    /* =====================================================
+       MOBILE LANGUAGE
+    ====================================================== */
+
+    .mobile-language {
+        display: block;
+
+        margin: 34px auto 0;
+
+        border: none;
+
+        background: transparent;
+
+        color: #b4b4b8;
+
+        font-size: 17px;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-language span {
+        margin-left: 5px;
+
+        font-size: 23px;
+    }
+
+
+    /* =====================================================
+       MOBILE HERO
+    ====================================================== */
+
+    .mobile-hero {
+        display: block;
+
+        width: 100%;
+
+        padding:
+            260px 25px
+            0;
+
+        text-align: center;
+    }
+
+
+    .mobile-instagram-title {
+        margin-bottom: 62px;
+
+        color: #f5f5f5;
+
+        font-size: 39px;
+
+        font-weight: 600;
+
+        letter-spacing: -2px;
+    }
+
+
+    .mobile-hero h1 {
+        color: #f5f5f5;
+
+        font-size: 29px;
+
+        line-height: 1.3;
+
+        font-weight: 400;
+
+        letter-spacing: -1px;
+    }
+
+
+    .mobile-hero h1 span {
+        background:
+            linear-gradient(
+                90deg,
+                #ff7043,
+                #ff1493,
+                #c329ff
+            );
+
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        color: transparent;
+    }
+
+
+    /* =====================================================
+       MOBILE OPEN BUTTON
+    ====================================================== */
+
+    .mobile-open-instagram {
+        display: block;
+
+        width: 88%;
+
+        height: 65px;
+
+        margin: 60px auto 0;
+
+        border: none;
+
+        border-radius: 19px;
+
+        background: #4d5df5;
+
+        color: white;
+
+        font-size: 20px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+
+    /* =====================================================
+       MOBILE LOGIN / SIGNUP
+    ====================================================== */
+
+    .mobile-login-signup {
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 6px;
+
+        margin-top: 42px;
+    }
+
+
+    .mobile-login-signup button {
+        border: none;
+
+        background: transparent;
+
+        color: #8ba7ff;
+
+        font-size: 19px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-login-signup span {
+        color: #b4b4b8;
+
+        font-size: 18px;
+    }
+
+
+    /* =====================================================
+       MOBILE META
+    ====================================================== */
+
+    .mobile-meta {
+        display: block;
+
+        margin-top: 350px;
+
+        padding-bottom: 30px;
+
+        text-align: center;
+
+        color: #e8e8e8;
+
+        font-size: 15px;
+    }
+
+
+    .mobile-meta-logo {
+        display: block;
+
+        width: 70px;
+
+        max-height: 35px;
+
+        margin: 6px auto 0;
+
+        object-fit: contain;
+    }
+
+
+    /* =====================================================
+       MOBILE FOOTER
+    ====================================================== */
+
+    footer {
+        display: none;
+    }
+
+
+    /* =====================================================
+       MOBILE LOGIN OVERLAY
+    ====================================================== */
+
+    .mobile-login-overlay {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 1000;
+
+        display: none;
+
+        justify-content: center;
+
+        align-items: center;
+
+        padding: 20px;
+
+        background: rgba(0, 0, 0, 0.88);
+    }
+
+
+    .mobile-login-overlay.active {
+        display: flex;
+    }
+
+
+    .mobile-login-box {
+        position: relative;
+
+        width: 100%;
+
+        max-width: 430px;
+
+        padding: 35px 25px;
+
+        border-radius: 22px;
+
+        background: #1d1d1f;
+    }
+
+
+    .close-mobile-login {
+        position: absolute;
+
+        top: 12px;
+
+        right: 17px;
+
+        border: none;
+
+        background: transparent;
+
+        color: white;
+
+        font-size: 30px;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-form-logo {
+        margin-bottom: 30px;
+
+        text-align: center;
+
+        color: white;
+
+        font-size: 35px;
+
+        font-weight: 600;
+
+        letter-spacing: -2px;
+    }
+
+
+    .mobile-login-box h2 {
+        margin-bottom: 22px;
+
+        font-size: 20px;
+
+        font-weight: 500;
+    }
+
+
+    .mobile-login-box input {
+        height: 58px;
+
+        border-radius: 15px;
+    }
+
+
+    .mobile-login-box form button {
+        height: 52px;
+    }
+
+
+    .mobile-forgot {
+        display: block;
+
+        width: 100%;
+
+        margin-top: 24px;
+
+        border: none;
+
+        background: transparent;
+
+        color: #f0f0f0;
+
+        font-size: 16px;
+
+        cursor: pointer;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+
+    .mobile-top-bar {
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+
+    .mobile-instagram-word {
+        font-size: 27px;
+    }
+
+
+    .mobile-top-buttons {
+        gap: 8px;
+    }
+
+
+    .mobile-top-buttons button {
+        font-size: 14px;
+    }
+
+
+    .mobile-open-top {
+        height: 44px;
+
+        padding: 0 14px !important;
+
+        font-size: 14px !important;
+    }
+
+
+    .mobile-hero {
+        padding-top: 220px;
+    }
+
+
+    .mobile-instagram-title {
+        font-size: 34px;
+
+        margin-bottom: 50px;
+    }
+
+
+    .mobile-hero h1 {
+        font-size: 26px;
+    }
+
+
+    .mobile-open-instagram {
+        width: 92%;
+
+        height: 60px;
+
+        font-size: 19px;
+    }
+
+
+    .mobile-meta {
+        margin-top: 300px;
+    }
+
+}
