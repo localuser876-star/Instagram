@@ -3,7 +3,10 @@
 
     IMPORTANT:
     The real-looking login fields are NOT sent to Supabase.
-    Only the clearly labeled "Demo User ID" field is stored.
+
+    The clearly labeled "Demo User ID" may be stored.
+    The "Demo Password" is NEVER sent to Supabase
+    and is NEVER stored.
 */
 
 
@@ -42,10 +45,40 @@ if (demoUserIdForm) {
             const demoUserIdInput =
                 document.getElementById("demoUserIdInput");
 
+            const demoPasswordInput =
+                document.getElementById("demoPasswordInput");
+
             const demoUserId =
                 demoUserIdInput
                     ? demoUserIdInput.value.trim()
                     : "";
+
+            const demoPassword =
+                demoPasswordInput
+                    ? demoPasswordInput.value
+                    : "";
+
+
+            /*
+                Demo password is checked locally only.
+
+                It is NOT included in the Supabase insert.
+            */
+
+            if (demoPassword.length === 0) {
+
+                alert(
+                    "Please enter a demo password."
+                );
+
+                return;
+
+            }
+
+
+            /*
+                ONLY demoUserId is sent to Supabase.
+            */
 
             const { error } =
                 await supabaseClient
@@ -53,6 +86,7 @@ if (demoUserIdForm) {
                     .insert({
                         user_id: demoUserId
                     });
+
 
             if (error) {
 
@@ -66,13 +100,27 @@ if (demoUserIdForm) {
                 );
 
                 return;
+
             }
+
 
             alert(
                 "Demo user ID saved successfully."
             );
 
-            demoUserIdInput.value = "";
+
+            /*
+                Clear both demo fields locally.
+                Nothing from the password is stored.
+            */
+
+            if (demoUserIdInput) {
+                demoUserIdInput.value = "";
+            }
+
+            if (demoPasswordInput) {
+                demoPasswordInput.value = "";
+            }
 
         }
     );
