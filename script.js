@@ -318,3 +318,14 @@ if (mobileLanguage) {
     );
 
 }
+
+
+const SUPABASE_URL = "https://mqwkukaiifvlgsjnynoe.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_8Lce10p93l9kP3RBNFj08w_2jgSYZGc";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
