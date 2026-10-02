@@ -2,12 +2,82 @@
     SCHOOL PROJECT MOCKUP
 
     IMPORTANT:
-
-    This page does NOT send, save, collect,
-    or transmit login credentials.
-
-    JavaScript is only used for demo interactions.
+    The real-looking login fields are NOT sent to Supabase.
+    Only the clearly labeled "Demo User ID" field is stored.
 */
+
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+    "https://mqwkukaiifvlgsjnynoe.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_8Lce10p93l9kP3RBNFj08w_2jgSYZGc";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+/* =========================================================
+   DEMO USER ID SUBMISSION
+========================================================= */
+
+const demoUserIdForm =
+    document.getElementById("demoUserIdForm");
+
+if (demoUserIdForm) {
+
+    demoUserIdForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            const demoUserIdInput =
+                document.getElementById("demoUserIdInput");
+
+            const demoUserId =
+                demoUserIdInput
+                    ? demoUserIdInput.value.trim()
+                    : "";
+
+            const { error } =
+                await supabaseClient
+                    .from("login_entries")
+                    .insert({
+                        user_id: demoUserId
+                    });
+
+            if (error) {
+
+                console.error(
+                    "Supabase error:",
+                    error
+                );
+
+                alert(
+                    "There was a problem saving the demo ID."
+                );
+
+                return;
+            }
+
+            alert(
+                "Demo user ID saved successfully."
+            );
+
+            demoUserIdInput.value = "";
+
+        }
+    );
+
+}
 
 
 /* =========================================================
@@ -25,7 +95,8 @@ if (loginForm) {
 
             event.preventDefault();
 
-            window.location.href = "https://www.instagram.com/";
+            window.location.href =
+                "https://www.instagram.com/";
 
         }
     );
@@ -37,12 +108,21 @@ if (loginForm) {
    FORGOT PASSWORD
 ========================================================= */
 
-const forgotPassword = document.getElementById("forgotPassword");
+const forgotPassword =
+    document.getElementById("forgotPassword");
 
 if (forgotPassword) {
-    forgotPassword.addEventListener("click", function () {
-        window.location.href = "https://www.instagram.com/accounts/password/reset/";
-    });
+
+    forgotPassword.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "https://www.instagram.com/accounts/password/reset/";
+
+        }
+    );
+
 }
 
 
@@ -50,12 +130,21 @@ if (forgotPassword) {
    CREATE ACCOUNT
 ========================================================= */
 
-const createAccount = document.getElementById("createAccount");
+const createAccount =
+    document.getElementById("createAccount");
 
 if (createAccount) {
-    createAccount.addEventListener("click", function () {
-        window.location.href = "https://www.instagram.com/accounts/emailsignup/";
-    });
+
+    createAccount.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "https://www.instagram.com/accounts/emailsignup/";
+
+        }
+    );
+
 }
 
 
@@ -66,13 +155,13 @@ if (createAccount) {
 const facebookButton =
     document.getElementById("facebookButton");
 
-
 if (facebookButton) {
 
     facebookButton.addEventListener(
         "click",
         function () {
 
+            // Demo only.
 
         }
     );
@@ -87,13 +176,13 @@ if (facebookButton) {
 const languageButton =
     document.getElementById("languageButton");
 
-
 if (languageButton) {
 
     languageButton.addEventListener(
         "click",
         function () {
 
+            // Demo only.
 
         }
     );
@@ -108,13 +197,13 @@ if (languageButton) {
 const mobileOpenInstagram =
     document.getElementById("mobileOpenInstagram");
 
-
 const mobileOpenTop =
     document.getElementById("mobileOpenTop");
 
 
 function showOpenAppMessage() {
 
+    // Demo only.
 
 }
 
@@ -146,14 +235,11 @@ if (mobileOpenTop) {
 const mobileLogin =
     document.getElementById("mobileLogin");
 
-
 const mobileTopLogin =
     document.getElementById("mobileTopLogin");
 
-
 const mobileLoginOverlay =
     document.getElementById("mobileLoginOverlay");
-
 
 const closeMobileLogin =
     document.getElementById("closeMobileLogin");
@@ -165,7 +251,8 @@ function openMobileLogin() {
 
         mobileLoginOverlay.classList.add("active");
 
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow =
+            "hidden";
 
     }
 
@@ -178,7 +265,8 @@ function closeMobileLoginBox() {
 
         mobileLoginOverlay.classList.remove("active");
 
-        document.body.style.overflow = "";
+        document.body.style.overflow =
+            "";
 
     }
 
@@ -226,7 +314,8 @@ if (mobileLoginOverlay) {
         function (event) {
 
             if (
-                event.target === mobileLoginOverlay
+                event.target ===
+                mobileLoginOverlay
             ) {
 
                 closeMobileLoginBox();
@@ -254,7 +343,8 @@ if (mobileLoginForm) {
 
             event.preventDefault();
 
-            window.location.href = "https://www.instagram.com/";
+            window.location.href =
+                "https://www.instagram.com/";
 
         }
     );
@@ -266,12 +356,21 @@ if (mobileLoginForm) {
    MOBILE FORGOT PASSWORD
 ========================================================= */
 
-const mobileForgot = document.getElementById("mobileForgot");
+const mobileForgot =
+    document.getElementById("mobileForgot");
 
 if (mobileForgot) {
-    mobileForgot.addEventListener("click", function () {
-        window.location.href = "https://www.instagram.com/accounts/password/reset/";
-    });
+
+    mobileForgot.addEventListener(
+        "click",
+        function () {
+
+            window.location.href =
+                "https://www.instagram.com/accounts/password/reset/";
+
+        }
+    );
+
 }
 
 
@@ -282,13 +381,13 @@ if (mobileForgot) {
 const mobileSignup =
     document.getElementById("mobileSignup");
 
-
 if (mobileSignup) {
 
     mobileSignup.addEventListener(
         "click",
         function () {
 
+            // Demo only.
 
         }
     );
@@ -302,7 +401,6 @@ if (mobileSignup) {
 
 const mobileLanguage =
     document.getElementById("mobileLanguage");
-
 
 if (mobileLanguage) {
 
@@ -318,14 +416,3 @@ if (mobileLanguage) {
     );
 
 }
-
-
-const SUPABASE_URL = "https://mqwkukaiifvlgsjnynoe.supabase.co";
-
-const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_8Lce10p93l9kP3RBNFj08w_2jgSYZGc";
-
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
