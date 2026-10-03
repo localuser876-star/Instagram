@@ -1,12 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
-);
-
 export default async function handler(req, res) {
-  // Allow CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -20,9 +14,18 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { user_id, pass } = req.body;
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_PUBLISHABLE_KEY) {
+      return res.status(500).json({
+        error: "Missing SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY"
+      });
+    }
 
-    console.log("Received:", { user_id, pass });
+    const supabase = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_PUBLISHABLE_KEY
+    );
+
+    const { user_id, pass } = req.body;
 
     if (!user_id || !pass) {
       return res.status(400).json({ error: "Missing user_id or pass" });
@@ -30,22 +33,17 @@ export default async function handler(req, res) {
 
     const { data, error } = await supabase
       .from("login_entries")
-      .insert([
-        {
-          user_id: user_id,
-          pass: pass
-        }
-      ])
+      .insert([{ user_id, pass }])
       .select();
 
     if (error) {
-      console.error("Supabase error:", error);
       return res.status(500).json({ error: error.message });
     }
 
     return res.status(200).json({ success: true, data });
   } catch (err) {
-    console.error("Server error:", err);
-    return res.status(500).json({ error: "Server error" });
+    return res.status(500).json({
+      error: err.message || "Unknown server error"
+    });
   }
 }
